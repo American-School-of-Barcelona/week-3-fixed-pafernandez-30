@@ -42,26 +42,16 @@ def input_task():
             writer = csv.DictWriter(f, fieldnames=["datetime", "project_title", "title", "description", "status", "next_steps"])
             writer.writerow(new_task)
         return redirect(url_for("display"))
-        if request.method == "POST":
-    project_title = request.form["project_title"]
-    title = request.form["title"]
-    description = request.form["description"]
-    status = request.form["status"]
-    next_steps = request.form["next_steps"]
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    with open("tasks.csv", "a", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=["project_title", "title", "description", "status", "next_steps", "timestamp"])
-        writer.writerow({
-            "project_title": project_title,
-            "title": title,
-            "description": description,
-            "status": status,
-            "next_steps": next_steps,
-            "timestamp": timestamp
-        })
+    project_titles = []
+    with open("tasks.csv", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if row["project_title"] not in project_titles:
+                project_titles.append(row["project_title"])
 
-    return redirect(url_for("display"))
+    return render_template("input.html", project_titles=project_titles)
+       
 
     # GET block — reads existing project titles for the datalist
     project_titles = []
