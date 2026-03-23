@@ -10,16 +10,23 @@
         {% endfor %}
     </datalist>
 
-    <!-- TODO: Create a form that submits to this same route via POST -->
-    <!-- Your form needs these fields: -->
-    <!--   project_title: text input — connect it to the datalist above:          -->
-    <!--     <input type="text" name="project_title" list="project-suggestions">  -->
-    <!--   title: text input                                                       -->
-    <!--   description: textarea                                                  -->
-    <!--   status: select dropdown with options: In Progress, Blocked, Done       -->
-    <!--   next_steps: text input                                                  -->
-    <!-- Don't forget: action="/input" method="POST" and a submit button          -->
+    <form action="/input" method="POST">
+  <input type="text" name="project_title" list="project-suggestions" placeholder="Project Title">
 
+  <input type="text" name="title" placeholder="Title">
+
+  <textarea name="description" placeholder="Description"></textarea>
+
+  <select name="status">
+    <option value="In Progress">In Progress</option>
+    <option value="Blocked">Blocked</option>
+    <option value="Done">Done</option>
+  </select>
+
+  <input type="text" name="next_steps" placeholder="Next Steps">
+
+  <button type="submit">Submit</button>
+</form>
     <p><em>Build your form here!</em></p>
     <p><a href="{{ url_for('display') }}">View existing tasks</a></p>
 {% endblock %}
