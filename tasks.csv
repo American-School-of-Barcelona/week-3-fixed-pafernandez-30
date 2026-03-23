@@ -8,3 +8,4 @@ datetime,project_title,title,description,status,next_steps
 2026-02-10 11:00:00,Task Tracker,Built the display route,Wrote the Flask route to read tasks.csv and pass the list to display.html. Tested with sample data — table renders correctly.,Done,Add the input form so new tasks can actually be saved
 2026-02-10 15:30:00,Task Tracker,Started building the input form,Added the HTML form fields to input.html. Stuck on wiring the POST handler — DictWriter keeps overwriting the file instead of appending.,Blocked,Figure out why rows disappear on each submit — check the open() mode argument
 2026-03-23 11:31:49,Test Project,My first task,Testing the form,In Progress, Check the display page
+2026-03-23 11:37:30,HUGO,WEMMBU,FLAMEFRAGS,In Progress,PARROTX2
